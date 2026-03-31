@@ -325,8 +325,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
   }
 
   function copyLink(token, email) {
-    // In production this would be a real URL like https://yourdomain.com/join?token=XYZ
-    const link = `lens.app/join?token=${token}&email=${encodeURIComponent(email)}`;
+    const link = `${window.location.origin}/join?token=${token}&email=${encodeURIComponent(email)}`;
     navigator.clipboard?.writeText(link).catch(()=>{});
     showToast("Invite link copied to clipboard!");
   }
@@ -726,7 +725,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
                       <span style={{fontFamily:"monospace",color:"#555",background:T.surface2,
                         padding:"2px 8px",borderRadius:4,border:`1px solid ${T.border}`,
                         overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:220,display:"inline-block"}}>
-                        lens.app/join?token={inv.token}
+                        {typeof window !== "undefined" ? window.location.origin : ""}/join?token={inv.token}
                       </span>
                     </div>
                   </div>
