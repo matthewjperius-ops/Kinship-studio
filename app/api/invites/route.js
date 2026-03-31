@@ -23,7 +23,7 @@ export async function POST(request) {
 
   const inviteUrl = `${process.env.NEXTAUTH_URL}/join?token=${token}&email=${encodeURIComponent(email)}`;
 
-  await resend.emails.send({
+  resend.emails.send({
     from: "Kinship Studio <onboarding@resend.dev>",
     to: email,
     subject: "You're invited to join Kinship Studio",
