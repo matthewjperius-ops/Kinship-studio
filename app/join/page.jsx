@@ -4,13 +4,13 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const T = {
-  bg:"#f5f1eb", surface:"#ffffff", surface2:"#ede9e2", border:"#ddd6cc",
-  text:"#1c1c19", muted:"#7a7568", accent:"#2d4a35",
+  bg:"#ffffff", surface:"#ffffff", surface2:"#f0f4f8", border:"#d0dde8",
+  text:"#1a1a2e", muted:"#6b7c93", accent:"#2b7fa8",
 };
 
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Gotham','Helvetica Neue',Arial,sans-serif;}
   .hp:hover{opacity:0.85;}
 `;
 

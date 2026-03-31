@@ -102,34 +102,34 @@ const results = [];
 
 // ─── Kinship Design Tokens ───────────────────────────────────────────────────
 const T = {
-  bg:      "#f5f1eb",   // warm cream — page background
+  bg:      "#ffffff",   // white background
   surface: "#ffffff",   // white cards
-  surface2:"#ede9e2",   // slightly darker cream for inset areas
-  border:  "#ddd6cc",   // warm warm border
-  text:    "#1c1c19",   // near-black ink
-  muted:   "#7a7568",   // warm mid-grey
-  accent:  "#2d4a35",   // Kinship forest green — primary action
-  accentHov:"#3d6045",  // green hover
-  green:   "#3d6045",   // confirmation / success green
+  surface2:"#f0f4f8",   // light blue-grey for inset areas
+  border:  "#d0dde8",   // cool border
+  text:    "#1a1a2e",   // near-black
+  muted:   "#6b7c93",   // muted blue-grey
+  accent:  "#2b7fa8",   // Kinship blue — primary action
+  accentHov:"#236d92",  // blue hover
+  green:   "#2b7fa8",   // use blue for success too
 };
 
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Gotham','Helvetica Neue',Arial,sans-serif;}
   .hp:hover{opacity:0.85;}
-  .hg:hover{background:#ede9e2!important;color:#1c1c19!important;}
-  .hs:hover{border-color:#2d4a35!important;}
-  .pc:hover{border-color:#2d4a35!important;transform:translateY(-2px);box-shadow:0 6px 24px rgba(45,74,53,0.14);}
-  .sd:hover{border-color:#2d4a35!important;background:rgba(45,74,53,0.04)!important;}
+  .hg:hover{background:#f0f4f8!important;color:#1a1a2e!important;}
+  .hs:hover{border-color:#2b7fa8!important;}
+  .pc:hover{border-color:#2b7fa8!important;transform:translateY(-2px);box-shadow:0 6px 24px rgba(43,127,168,0.14);}
+  .sd:hover{border-color:#2b7fa8!important;background:rgba(43,127,168,0.04)!important;}
   @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
   @keyframes tIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
   @keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
   .pg{animation:fade 0.28s ease;}
   .shake{animation:shake 0.35s ease;}
-  input::placeholder{color:#b0a898;} textarea::placeholder{color:#b0a898;}
-  input:focus{border-color:#2d4a35!important;outline:none;}
-  textarea:focus{border-color:#2d4a35!important;outline:none;}
-  ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-thumb{background:#ddd6cc;border-radius:2px}
+  input::placeholder{color:#a0b0c0;} textarea::placeholder{color:#a0b0c0;}
+  input:focus{border-color:#2b7fa8!important;outline:none;}
+  textarea:focus{border-color:#2b7fa8!important;outline:none;}
+  ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-thumb{background:#d0dde8;border-radius:2px}
 `;
 
 // ─── Shared UI ────────────────────────────────────────────────────────────────
@@ -138,7 +138,7 @@ function Avatar({ p, size=48 }) {
     ? <img src={p.photo} alt={p.name} style={{width:size,height:size,borderRadius:"50%",objectFit:"cover",border:`1.5px solid ${T.border}`,flexShrink:0}}/>
     : <div style={{width:size,height:size,borderRadius:"50%",background:p.color,display:"flex",alignItems:"center",
         justifyContent:"center",fontSize:size*.4,fontWeight:500,color:T.accent,flexShrink:0,
-        border:`1.5px solid ${T.border}`,fontFamily:"'Cormorant Garamond',serif",letterSpacing:"0.04em"}}>
+        border:`1.5px solid ${T.border}`,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",letterSpacing:"0.04em"}}>
         {p.name[0].toUpperCase()}
       </div>;
 }
@@ -158,7 +158,7 @@ function StackedAvatars({ producers, size=36 }) {
 function Badge({ s }) {
   return <span style={{fontSize:10,fontWeight:600,padding:"3px 11px",borderRadius:2,
     background:"rgba(45,74,53,0.08)",color:T.accent,
-    fontFamily:"'Jost',sans-serif",letterSpacing:"0.12em",textTransform:"uppercase"}}>
+    fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",letterSpacing:"0.12em",textTransform:"uppercase"}}>
     {s==="photo"?"Photography":s==="video"?"Videography":"Photo & Video"}
   </span>;
 }
@@ -167,7 +167,7 @@ function ToastEl({ msg, type }) {
   return <div style={{position:"fixed",bottom:28,right:28,zIndex:9999,
     background:type==="err"?"#5a1a1a":T.accent,
     color:"#ffffff",padding:"13px 22px",borderRadius:3,
-    fontSize:13,fontFamily:"'Jost',sans-serif",fontWeight:500,letterSpacing:"0.03em",
+    fontSize:13,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:500,letterSpacing:"0.03em",
     boxShadow:"0 8px 32px rgba(45,74,53,0.25)",animation:"tIn 0.2s ease"}}>
     {type==="err"?"✕  ":"✓  "}{msg}
   </div>;
@@ -175,31 +175,31 @@ function ToastEl({ msg, type }) {
 
 // shared style object
 const css = {
-  app:   {minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'Jost',sans-serif",fontWeight:400},
+  app:   {minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:400},
   bar:   {background:T.accent,borderBottom:"none",padding:"0 48px",
           height:62,display:"flex",alignItems:"center",justifyContent:"space-between"},
   logo:  {fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          fontFamily:"'Cormorant Garamond',serif",color:"#ffffff"},
+          fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"},
   wrap:  {maxWidth:1020,margin:"0 auto",padding:"52px 32px"},
   wrapNarrow: {maxWidth:580,margin:"0 auto",padding:"52px 32px"},
-  h1:    {fontFamily:"'Cormorant Garamond',serif",fontSize:36,fontWeight:400,
+  h1:    {fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:36,fontWeight:400,
           letterSpacing:"-0.3px",marginBottom:8,color:T.text,lineHeight:1.2},
   sub:   {fontSize:14,color:T.muted,marginBottom:34,lineHeight:1.65,fontWeight:300},
   card:  {background:T.surface,border:`1px solid ${T.border}`,borderRadius:3,padding:28,marginBottom:18},
   card2: {background:T.surface2,border:`1px solid ${T.border}`,borderRadius:3,padding:20},
   lbl:   {fontSize:10,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          color:T.muted,marginBottom:10,display:"block",fontFamily:"'Jost',sans-serif"},
+          color:T.muted,marginBottom:10,display:"block",fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"},
   inp:   {background:T.surface,border:`1px solid ${T.border}`,borderRadius:3,color:T.text,
-          padding:"11px 14px",fontSize:14,fontFamily:"'Jost',sans-serif",outline:"none",width:"100%",
+          padding:"11px 14px",fontSize:14,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",outline:"none",width:"100%",
           fontWeight:400},
   btnP:  {padding:"12px 28px",background:T.accent,color:"#ffffff",border:"none",borderRadius:3,
-          cursor:"pointer",fontSize:12,fontWeight:600,fontFamily:"'Jost',sans-serif",
+          cursor:"pointer",fontSize:12,fontWeight:600,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",
           letterSpacing:"0.1em",textTransform:"uppercase",transition:"background 0.15s"},
   btnG:  {padding:"10px 20px",background:"transparent",color:T.muted,border:`1px solid ${T.border}`,
-          borderRadius:3,cursor:"pointer",fontSize:12,fontFamily:"'Jost',sans-serif",
+          borderRadius:3,cursor:"pointer",fontSize:12,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",
           letterSpacing:"0.06em"},
   btnSm: {padding:"6px 13px",background:"transparent",color:T.muted,border:`1px solid ${T.border}`,
-          borderRadius:3,cursor:"pointer",fontSize:11,fontFamily:"'Jost',sans-serif",
+          borderRadius:3,cursor:"pointer",fontSize:11,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",
           letterSpacing:"0.06em"},
 };
 
@@ -558,7 +558,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
         <div style={{display:"flex",alignItems:"center",gap:12}}>
           <span style={css.logo}>Kinship</span>
           <span style={{fontSize:10,color:"rgba(255,255,255,0.7)",letterSpacing:"0.14em",
-            textTransform:"uppercase",fontFamily:"'Jost',sans-serif",fontWeight:500}}>Admin Portal</span>
+            textTransform:"uppercase",fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:500}}>Admin Portal</span>
         </div>
         <button style={{...css.btnG,fontSize:11,color:"rgba(255,255,255,0.8)",
           borderColor:"rgba(255,255,255,0.3)",letterSpacing:"0.1em",textTransform:"uppercase"}}
@@ -578,7 +578,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
             {l:"Total Bookings",v:uniqueBookings.length}
           ].map(s=>(
             <div key={s.l} style={{flex:1,...css.card2,padding:22}}>
-              <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:40,fontWeight:400,color:T.accent,letterSpacing:"-1px"}}>{s.v}</div>
+              <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:40,fontWeight:400,color:T.accent,letterSpacing:"-1px"}}>{s.v}</div>
               <div style={{fontSize:10,color:T.muted,textTransform:"uppercase",letterSpacing:"0.1em",marginTop:4}}>{s.l}</div>
             </div>
           ))}
@@ -1146,7 +1146,7 @@ findFreeSlots(bProducers, bDuration, bYear, bMonth, bookings).then(slots => setB
                 <div style={{display:"flex",alignItems:"center",gap:14}}>
                   <StackedAvatars producers={bProducers} size={34}/>
                   <div>
-                    <div style={{fontWeight:600,fontSize:15,color:T.accent,fontFamily:"'Cormorant Garamond',serif",fontSize:17}}>
+                    <div style={{fontWeight:600,fontSize:15,color:T.accent,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:17}}>
                       {new Date(bSlot.date+"T12:00:00").toLocaleDateString("en-US",{weekday:"short",month:"long",day:"numeric"})} · {fmtMins(bSlot.shootStart)} – {fmtMins(bSlot.shootEnd)}
                     </div>
                     <div style={{fontSize:12,color:T.muted,marginTop:2}}>
@@ -1221,7 +1221,7 @@ findFreeSlots(bProducers, bDuration, bYear, bMonth, bookings).then(slots => setB
         {/* ── Step 5: Confirmed ── */}
         {step===5&&(
           <div style={{textAlign:"center",padding:"72px 0"}}>
-            <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:72,marginBottom:16,color:T.accent,lineHeight:1}}>✦</div>
+            <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:72,marginBottom:16,color:T.accent,lineHeight:1}}>✦</div>
             <div style={{...css.h1,marginBottom:8}}>You're Booked!</div>
             <div style={{fontSize:16,color:T.muted,marginBottom:5}}>
               {bProducers.map(p=>p.name).join(" & ")} · {specialtyLabel(bShootType)}

@@ -4,15 +4,15 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const T = {
-  bg:"#f5f1eb", surface:"#ffffff", surface2:"#ede9e2", border:"#ddd6cc",
-  text:"#1c1c19", muted:"#7a7568", accent:"#2d4a35", accentHov:"#3d6045",
+  bg:"#ffffff", surface:"#ffffff", surface2:"#f0f4f8", border:"#d0dde8",
+  text:"#1a1a2e", muted:"#6b7c93", accent:"#2b7fa8", accentHov:"#236d92",
 };
 
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Gotham','Helvetica Neue',Arial,sans-serif;}
   .hp:hover{opacity:0.85;}
-  .hg:hover{background:#ede9e2!important;color:#1c1c19!important;}
+  .hg:hover{background:#f0f4f8!important;color:#1a1a2e!important;}
   @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
   .pg{animation:fade 0.28s ease;}
   @keyframes tIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -26,14 +26,14 @@ const css = {
   card: {background:T.surface,border:`1px solid ${T.border}`,borderRadius:3,padding:28,marginBottom:18},
   card2:{background:T.surface2,border:`1px solid ${T.border}`,borderRadius:3,padding:20},
   lbl:  {fontSize:10,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-         color:T.muted,marginBottom:10,display:"block",fontFamily:"'Jost',sans-serif"},
+         color:T.muted,marginBottom:10,display:"block",fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"},
   btnP: {padding:"11px 24px",background:T.accent,color:"#ffffff",border:"none",borderRadius:3,
-         cursor:"pointer",fontSize:12,fontWeight:600,fontFamily:"'Jost',sans-serif",
+         cursor:"pointer",fontSize:12,fontWeight:600,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",
          letterSpacing:"0.1em",textTransform:"uppercase"},
   btnG: {padding:"10px 20px",background:"transparent",color:T.muted,border:`1px solid ${T.border}`,
-         borderRadius:3,cursor:"pointer",fontSize:12,fontFamily:"'Jost',sans-serif"},
+         borderRadius:3,cursor:"pointer",fontSize:12,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"},
   inp:  {background:T.surface,border:`1px solid ${T.border}`,borderRadius:3,color:T.text,
-         padding:"10px 14px",fontSize:14,fontFamily:"'Jost',sans-serif",outline:"none",width:"100%"},
+         padding:"10px 14px",fontSize:14,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",outline:"none",width:"100%"},
 };
 
 function fmtDate(dt) {
@@ -142,7 +142,7 @@ export default function Dashboard() {
   if (status === "loading" || !avail) {
     return (
       <div style={{minHeight:"100vh",background:T.bg,display:"flex",alignItems:"center",justifyContent:"center"}}>
-        <div style={{fontSize:14,color:T.muted,fontFamily:"'Jost',sans-serif"}}>Loading…</div>
+        <div style={{fontSize:14,color:T.muted,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>Loading…</div>
       </div>
     );
   }
@@ -165,7 +165,7 @@ export default function Dashboard() {
   const hours = Array.from({length:13},(_,i)=>i+6);
 
   return (
-    <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'Jost',sans-serif"}}>
+    <div style={{minHeight:"100vh",background:T.bg,color:T.text,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
       <style>{GLOBAL_CSS}</style>
 
       {/* Nav */}
@@ -173,7 +173,7 @@ export default function Dashboard() {
         alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:12}}>
           <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-            fontFamily:"'Cormorant Garamond',serif",color:"#ffffff"}}>Kinship</span>
+            fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"}}>Kinship</span>
           <span style={{fontSize:10,color:"rgba(255,255,255,0.7)",letterSpacing:"0.14em",
             textTransform:"uppercase",fontWeight:500}}>Producer</span>
         </div>
@@ -196,7 +196,7 @@ export default function Dashboard() {
       </div>
 
       <div style={{maxWidth:900,margin:"0 auto",padding:"48px 32px"}} className="pg">
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:36,fontWeight:400,marginBottom:6}}>
+        <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:36,fontWeight:400,marginBottom:6}}>
           Welcome back, {session?.user?.name?.split(" ")[0]}
         </div>
         <div style={{fontSize:14,color:T.muted,marginBottom:36}}>Your shoots and availability</div>
@@ -211,7 +211,7 @@ export default function Dashboard() {
                   : <div style={{width:64,height:64,borderRadius:"50%",background:T.surface2,
                       border:`2px solid ${T.border}`,display:"flex",alignItems:"center",
                       justifyContent:"center",fontSize:24,color:T.accent,fontWeight:600,flexShrink:0,
-                      fontFamily:"'Cormorant Garamond',serif"}}>
+                      fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
                       {(profile?.name||session?.user?.name||"?")[0].toUpperCase()}
                     </div>
                 }
@@ -289,7 +289,7 @@ export default function Dashboard() {
         <div style={{display:"flex",gap:14,marginBottom:24}}>
           {monthCounts.map(m=>(
             <div key={m.label} style={{flex:1,...css.card2,padding:22}}>
-              <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:40,fontWeight:400,
+              <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:40,fontWeight:400,
                 color:T.accent,letterSpacing:"-1px"}}>{m.count}</div>
               <div style={{fontSize:10,color:T.muted,textTransform:"uppercase",
                 letterSpacing:"0.1em",marginTop:4}}>{m.label} shoots</div>
@@ -338,7 +338,7 @@ export default function Dashboard() {
               <div key={b.id} style={{display:"flex",alignItems:"center",gap:16,padding:"13px 0",
                 borderBottom:`1px solid ${T.border}`}}>
                 <div style={{width:48,textAlign:"center",flexShrink:0}}>
-                  <div style={{fontSize:22,fontFamily:"'Cormorant Garamond',serif",fontWeight:400,
+                  <div style={{fontSize:22,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:400,
                     color:T.accent,lineHeight:1}}>{new Date(b.startsAt).getDate()}</div>
                   <div style={{fontSize:10,color:T.muted,letterSpacing:"0.1em",textTransform:"uppercase"}}>
                     {MONTHS[new Date(b.startsAt).getMonth()]}
@@ -379,7 +379,7 @@ export default function Dashboard() {
                     <div key={i} style={{display:"flex",alignItems:"center",gap:16,
                       padding:"11px 0",borderBottom:`1px solid ${T.border}`}}>
                       <div style={{width:48,textAlign:"center",flexShrink:0}}>
-                        <div style={{fontSize:20,fontFamily:"'Cormorant Garamond',serif",fontWeight:400,
+                        <div style={{fontSize:20,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:400,
                           color:T.muted,lineHeight:1}}>{start.getDate()}</div>
                         <div style={{fontSize:10,color:T.muted,letterSpacing:"0.1em",textTransform:"uppercase"}}>
                           {MONTHS[start.getMonth()]}
@@ -457,7 +457,7 @@ export default function Dashboard() {
               <div key={b.id} style={{display:"flex",alignItems:"center",gap:16,padding:"11px 0",
                 borderBottom:`1px solid ${T.border}`,opacity:0.6}}>
                 <div style={{width:48,textAlign:"center",flexShrink:0}}>
-                  <div style={{fontSize:20,fontFamily:"'Cormorant Garamond',serif",fontWeight:400,lineHeight:1}}>
+                  <div style={{fontSize:20,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:400,lineHeight:1}}>
                     {new Date(b.startsAt).getDate()}
                   </div>
                   <div style={{fontSize:10,color:T.muted,letterSpacing:"0.1em",textTransform:"uppercase"}}>
@@ -478,7 +478,7 @@ export default function Dashboard() {
         <div style={{position:"fixed",bottom:28,right:28,zIndex:9999,
           background:toast.type==="err"?"#5a1a1a":T.accent,
           color:"#ffffff",padding:"13px 22px",borderRadius:3,
-          fontSize:13,fontFamily:"'Jost',sans-serif",fontWeight:500,
+          fontSize:13,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:500,
           boxShadow:"0 8px 32px rgba(45,74,53,0.25)",animation:"tIn 0.2s ease"}}>
           {toast.type==="err"?"✕  ":"✓  "}{toast.msg}
         </div>

@@ -3,27 +3,26 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 
 const T = {
-  bg:"#f5f1eb", surface:"#ffffff", surface2:"#ede9e2", border:"#ddd6cc",
-  text:"#1c1c19", muted:"#7a7568", accent:"#2d4a35",
+  bg:"#ffffff", surface:"#ffffff", surface2:"#f0f4f8", border:"#d0dde8",
+  text:"#1a1a2e", muted:"#6b7c93", accent:"#2b7fa8",
 };
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Gotham','Helvetica Neue',Arial,sans-serif;}
   .hp:hover{opacity:0.85;}
   @keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
   .pg{animation:fade 0.28s ease;}
   @keyframes tIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-  input:focus,select:focus,textarea:focus{border-color:#2d4a35!important;outline:none;}
+  input:focus,select:focus,textarea:focus{border-color:#2b7fa8!important;outline:none;}
 `;
 const css = {
   card: {background:T.surface,border:`1px solid ${T.border}`,borderRadius:3,padding:28,marginBottom:18},
   lbl:  {fontSize:10,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-         color:T.muted,marginBottom:10,display:"block",fontFamily:"'Jost',sans-serif"},
+         color:T.muted,marginBottom:10,display:"block"},
   inp:  {background:T.surface,border:`1px solid ${T.border}`,borderRadius:3,color:T.text,
-         padding:"11px 14px",fontSize:14,fontFamily:"'Jost',sans-serif",outline:"none",width:"100%"},
+         padding:"11px 14px",fontSize:14,outline:"none",width:"100%"},
   btnP: {padding:"12px 28px",background:T.accent,color:"#ffffff",border:"none",borderRadius:3,
-         cursor:"pointer",fontSize:12,fontWeight:600,fontFamily:"'Jost',sans-serif",
-         letterSpacing:"0.1em",textTransform:"uppercase"},
+         cursor:"pointer",fontSize:12,fontWeight:600,letterSpacing:"0.1em",textTransform:"uppercase"},
 };
 
 const DURATIONS = [60, 90, 120];
@@ -113,7 +112,7 @@ export default function UnrestrictedBookingPage() {
   if (!linkData && !invalid) {
     return (
       <div style={{minHeight:"100vh",background:T.bg,display:"flex",alignItems:"center",justifyContent:"center"}}>
-        <div style={{fontSize:14,color:T.muted,fontFamily:"'Jost',sans-serif"}}>Loading…</div>
+        <div style={{fontSize:14,color:T.muted,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>Loading…</div>
       </div>
     );
   }
@@ -121,7 +120,7 @@ export default function UnrestrictedBookingPage() {
   if (invalid) {
     const msgs = { used:"This booking link has already been used.", expired:"This booking link has expired.", not_found:"This booking link is invalid." };
     return (
-      <div style={{minHeight:"100vh",background:T.bg,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Jost',sans-serif"}}>
+      <div style={{minHeight:"100vh",background:T.bg,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
         <style>{GLOBAL_CSS}</style>
         <div style={{textAlign:"center",padding:32}}>
           <div style={{fontSize:32,marginBottom:16,color:T.muted}}>✕</div>
@@ -134,15 +133,15 @@ export default function UnrestrictedBookingPage() {
 
   // Confirmed screen
   if (step === 3) return (
-    <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Jost',sans-serif"}}>
+    <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
       <style>{GLOBAL_CSS}</style>
       <div style={{background:T.accent,padding:"0 48px",height:62,display:"flex",alignItems:"center"}}>
         <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          fontFamily:"'Cormorant Garamond',serif",color:"#ffffff"}}>Kinship</span>
+          fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"}}>Kinship</span>
       </div>
       <div style={{maxWidth:580,margin:"0 auto",padding:"80px 32px",textAlign:"center"}} className="pg">
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:72,color:T.accent,lineHeight:1,marginBottom:16}}>✦</div>
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:36,fontWeight:400,marginBottom:8}}>You're Booked!</div>
+        <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:72,color:T.accent,lineHeight:1,marginBottom:16}}>✦</div>
+        <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:36,fontWeight:400,marginBottom:8}}>You're Booked!</div>
         <div style={{fontSize:14,color:T.muted,marginBottom:6}}>{business} · {SHOOT_TYPES.find(t=>t[0]===shootType)?.[1]}</div>
         <div style={{fontSize:14,color:T.muted,marginBottom:32}}>
           {new Date(`${date}T12:00:00`).toLocaleDateString("en-US",{weekday:"long",month:"long",day:"numeric"})}
@@ -158,18 +157,18 @@ export default function UnrestrictedBookingPage() {
   const today = new Date().toISOString().slice(0,10);
 
   return (
-    <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Jost',sans-serif"}}>
+    <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
       <style>{GLOBAL_CSS}</style>
       <div style={{background:T.accent,padding:"0 48px",height:62,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
         <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          fontFamily:"'Cormorant Garamond',serif",color:"#ffffff"}}>Kinship</span>
+          fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"}}>Kinship</span>
         <span style={{fontSize:11,color:"rgba(255,255,255,0.6)",letterSpacing:"0.1em",textTransform:"uppercase"}}>
           Private Booking
         </span>
       </div>
 
       <div style={{maxWidth:600,margin:"0 auto",padding:"48px 32px"}} className="pg">
-        <div style={{fontFamily:"'Cormorant Garamond',serif",fontSize:36,fontWeight:400,marginBottom:6}}>Book a Shoot</div>
+        <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:36,fontWeight:400,marginBottom:6}}>Book a Shoot</div>
         <div style={{fontSize:14,color:T.muted,marginBottom:32}}>
           This is a private booking link. Choose your date, time, and details below.
         </div>
@@ -263,7 +262,7 @@ export default function UnrestrictedBookingPage() {
       {toast&&(
         <div style={{position:"fixed",bottom:28,right:28,zIndex:9999,
           background:toast.type==="err"?"#5a1a1a":T.accent,color:"#ffffff",
-          padding:"13px 22px",borderRadius:3,fontSize:13,fontFamily:"'Jost',sans-serif",
+          padding:"13px 22px",borderRadius:3,fontSize:13,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",
           fontWeight:500,boxShadow:"0 8px 32px rgba(45,74,53,0.25)",animation:"tIn 0.2s ease"}}>
           {toast.type==="err"?"✕  ":"✓  "}{toast.msg}
         </div>
