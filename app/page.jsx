@@ -689,7 +689,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
                   <Avatar p={p} size={44}/>
                   <div>
                     <div style={{fontWeight:800,fontSize:15}}>{p.name}</div>
-                    <div style={{fontSize:11,color:T.muted,marginTop:1}}>{p.email}</div>
+                    <div style={{fontSize:11,color:T.muted,marginTop:1,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap",maxWidth:160}}>{p.email}</div>
                   </div>
                 </div>
                 <Badge s={p.specialty}/>
