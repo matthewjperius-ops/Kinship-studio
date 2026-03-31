@@ -225,7 +225,7 @@ function AdminLogin({ onSuccess }) {
     <div style={css.app}>
       <style>{GLOBAL_CSS}</style>
       <div style={css.bar}>
-        <span style={css.logo}>Kinship</span>
+        <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
       </div>
       <div style={{...css.wrapNarrow,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",minHeight:"calc(100vh - 58px)"}}>
         <div style={{width:"100%",maxWidth:400}}>
@@ -376,7 +376,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
       <div style={css.app}>
         <style>{GLOBAL_CSS}</style>
         <div style={css.bar}>
-          <span style={css.logo}>Kinship</span>
+          <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
         </div>
         <div style={{display:"flex",alignItems:"center",justifyContent:"center",minHeight:"calc(100vh - 58px)",padding:24}}>
           <div style={{width:"100%",maxWidth:400}}>
@@ -461,7 +461,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
       <div style={css.app}>
         <style>{GLOBAL_CSS}</style>
         <div style={css.bar}>
-          <span style={css.logo}>Kinship</span>
+          <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
           <div style={{display:"flex",alignItems:"center",gap:8,fontSize:12,color:T.green}}>
             <div style={{width:8,height:8,borderRadius:"50%",background:T.green}}/> Signed in as {inv?.email}
           </div>
@@ -556,7 +556,7 @@ function AdminPortal({ producers, setProducers, invites, setInvites, bookings, o
       <style>{GLOBAL_CSS}</style>
       <div style={css.bar}>
         <div style={{display:"flex",alignItems:"center",gap:12}}>
-          <span style={css.logo}>Kinship</span>
+          <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
           <span style={{fontSize:10,color:"rgba(255,255,255,0.7)",letterSpacing:"0.14em",
             textTransform:"uppercase",fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontWeight:500}}>Admin Portal</span>
         </div>
@@ -899,7 +899,7 @@ findFreeSlots(bProducers, bDuration, bYear, bMonth, bookings).then(slots => setB
 
       {/* Clean public topbar — no admin link */}
       <div style={css.bar}>
-        <span style={css.logo}>Kinship</span>
+        <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
         <div style={{display:"flex",alignItems:"center",gap:16}}>
           {step<5&&[1,2,3,4].map(n=>(
             <div key={n} style={{width:7,height:7,borderRadius:"50%",

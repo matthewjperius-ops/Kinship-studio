@@ -136,8 +136,7 @@ export default function UnrestrictedBookingPage() {
     <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
       <style>{GLOBAL_CSS}</style>
       <div style={{background:T.accent,padding:"0 48px",height:62,display:"flex",alignItems:"center"}}>
-        <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"}}>Kinship</span>
+        <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
       </div>
       <div style={{maxWidth:580,margin:"0 auto",padding:"80px 32px",textAlign:"center"}} className="pg">
         <div style={{fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",fontSize:72,color:T.accent,lineHeight:1,marginBottom:16}}>✦</div>
@@ -160,8 +159,7 @@ export default function UnrestrictedBookingPage() {
     <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif"}}>
       <style>{GLOBAL_CSS}</style>
       <div style={{background:T.accent,padding:"0 48px",height:62,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"}}>Kinship</span>
+        <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
         <span style={{fontSize:11,color:"rgba(255,255,255,0.6)",letterSpacing:"0.1em",textTransform:"uppercase"}}>
           Private Booking
         </span>

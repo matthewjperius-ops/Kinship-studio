@@ -67,8 +67,7 @@ function JoinPageContent() {
     <div style={{minHeight:"100vh",background:T.bg,fontFamily:"'Jost',sans-serif"}}>
       <style>{GLOBAL_CSS}</style>
       <div style={{background:T.accent,padding:"0 48px",height:62,display:"flex",alignItems:"center"}}>
-        <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-          fontFamily:"'Cormorant Garamond',serif",color:"#ffffff"}}>Kinship</span>
+        <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
       </div>
       <div style={{display:"flex",alignItems:"center",justifyContent:"center",minHeight:"calc(100vh - 62px)",padding:24}}>
         <div style={{width:"100%",maxWidth:400}}>

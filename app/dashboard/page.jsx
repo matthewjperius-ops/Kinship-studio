@@ -172,8 +172,7 @@ export default function Dashboard() {
       <div style={{background:T.accent,padding:"0 48px",height:62,display:"flex",
         alignItems:"center",justifyContent:"space-between"}}>
         <div style={{display:"flex",alignItems:"center",gap:12}}>
-          <span style={{fontSize:20,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",
-            fontFamily:"'Gotham','Helvetica Neue',Arial,sans-serif",color:"#ffffff"}}>Kinship</span>
+          <img src="/Kinship_Primary_Logo_REV (1).png" alt="Kinship Studio" style={{height:36,objectFit:"contain"}}/>
           <span style={{fontSize:10,color:"rgba(255,255,255,0.7)",letterSpacing:"0.14em",
             textTransform:"uppercase",fontWeight:500}}>Producer</span>
         </div>
