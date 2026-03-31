@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -14,7 +14,7 @@ const GLOBAL_CSS = `
   .hp:hover{opacity:0.85;}
 `;
 
-export default function JoinPage() {
+function JoinPageContent() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -118,5 +118,13 @@ export default function JoinPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function JoinPage() {
+  return (
+    <Suspense fallback={<div style={{minHeight:"100vh",background:"#f5f1eb",display:"flex",alignItems:"center",justifyContent:"center"}}><div style={{fontSize:14,color:"#7a7568",fontFamily:"'Jost',sans-serif"}}>Loading…</div></div>}>
+      <JoinPageContent />
+    </Suspense>
   );
 }
